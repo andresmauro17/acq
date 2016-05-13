@@ -23,7 +23,7 @@ f = [f1:hf:f2];
 Nf = length(f);
 
 % Generador de señales
-gen = tcpip('192.168.1.101','RemotePort',5025)
+gen = tcpip('192.168.1.100','RemotePort',5025)
 fopen(gen)
 %fprintf(gen,'APPL:SIN 10 KHZ, 3.0 VPP, 0.0 V');
 
@@ -45,7 +45,7 @@ for(k=1:Nf)
 
 	% --------signal generator------- 
 	disp(char(strcat('Acq:',{' ' },num2str(k),'/',num2str(Nf))))
-	str1 = strcat('APPL:SIN ',{' '},num2str(f(k)),' HZ, 5.0 VPP, 0.0 V');
+	str1 = strcat('APPL:SIN ',{' '},num2str(f(k)),' HZ, 10.0 VPP, 0.0 V');
 	fprintf(gen,char(str1));
 	
 	% --------- acq in -------
@@ -63,7 +63,7 @@ for(k=1:Nf)
 
 end
 
-str3=strcat(dir_root,'/T/T.mat');
+str3=strcat(dir_root,'/T/T2.mat');
 save(str3,'T')
 
 % Cierra las conexiones

@@ -1,8 +1,8 @@
 in_root = 'in/';
 out_root = 'out/';
 
-Ts = load('T/T.mat');
-fs = 1./(Ts.T);
+Ts = load('T/T2.mat');
+fs = 1./(Ts.T2);
 Nf = length(fs);
 
 m = zeros(Nf,1);
