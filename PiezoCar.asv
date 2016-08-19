@@ -37,7 +37,7 @@ fopen(osc)
 
 
 dir_root=pwd;
-% cont = 501
+cont = 501
 
 T = zeros(Nf,1);
 
@@ -50,16 +50,16 @@ for(k=1:Nf)
 	
 	% --------- acq in -------
 	[s,Ts]=readOsc1(osc,1/f(k));
-	str2=strcat(dir_root,'/in/i',num2str(f(k)),'.mat');
+	str2=strcat(dir_root,'/in/i',num2str(cont),'.mat');
 	T(k) = Ts;
 	save(str2,'s')
 
 	% --------- acq out -------
 	s=readOsc2(osc,1/f(k));
-	str2=strcat(dir_root,'/out/i',num2str(f(k)),'.mat');
+	str2=strcat(dir_root,'/out/i',num2str(cont),'.mat');
 	save(str2,'s')
 
-% 	cont = cont + 1;
+	cont = cont + 1;
 
 end
 
